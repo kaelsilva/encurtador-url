@@ -14,7 +14,7 @@ export class CreateUserDto {
   @ApiProperty({
     type: 'string',
     description: 'Strong password.',
-    example: 'secretPassword1',
+    example: 'Asdqwe123!',
   })
   @IsStrongPassword()
   @IsNotEmpty()
