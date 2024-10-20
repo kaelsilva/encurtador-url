@@ -12,7 +12,12 @@ export class UserController {
   }
 
   @Get()
-  findAll() {
-    return this.userService.findAll();
+  async findAll() {
+    const users = await this.userService.findAll();
+
+    return users.map((user) => {
+      delete user.password;
+      return users;
+    });
   }
 }
