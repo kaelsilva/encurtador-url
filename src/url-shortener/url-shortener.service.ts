@@ -30,7 +30,7 @@ export class UrlShortenerService {
       where: { originalUrl: url, user: { id: user?.id } },
     });
     if (existing) {
-      return existing;
+      return existing.shortUrl;
     }
 
     const shortUrl = this.generateShortUrl();

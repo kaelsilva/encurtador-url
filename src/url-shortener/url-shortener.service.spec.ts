@@ -57,7 +57,7 @@ describe('UrlShortenerService', () => {
       jest.spyOn(urlRepository, 'findOne').mockResolvedValue(existingUrl);
 
       const result = await service.create(createUrlShortenerDto);
-      expect(result).toEqual(existingUrl);
+      expect(result).toEqual(existingUrl.shortUrl);
     });
   });
 
