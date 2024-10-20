@@ -12,8 +12,8 @@ async function bootstrap() {
   );
 
   const docConfig = new DocumentBuilder()
-    .setTitle('PROJECT')
-    .setDescription('The PROJECT API documentation')
+    .setTitle('URL Shortener')
+    .setDescription('The URL Shortener documentation')
     .setVersion('1.0')
     .build();
 
