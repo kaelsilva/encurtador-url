@@ -1,3 +1,4 @@
+import { UrlShortener } from '../../url-shortener/entities/url-shortener.entity';
 import {
   Entity,
   Column,
@@ -5,6 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Unique,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -18,6 +20,9 @@ export class User {
 
   @Column()
   password: string;
+
+  @OneToMany(() => UrlShortener, (urlShortener) => urlShortener.user)
+  urls: UrlShortener[];
 
   @CreateDateColumn()
   createdAt: Date;
