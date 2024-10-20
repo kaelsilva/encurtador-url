@@ -5,9 +5,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import typeOrmConfig from './configs/typeorm.config';
 import { DataSource } from 'typeorm';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(typeOrmConfig), UserModule],
+  imports: [TypeOrmModule.forRoot(typeOrmConfig), UserModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
