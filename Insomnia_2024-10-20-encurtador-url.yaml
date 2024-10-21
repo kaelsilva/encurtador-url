@@ -1,0 +1,315 @@
+_type: export
+__export_format: 4
+__export_date: 2024-10-21T00:28:32.289Z
+__export_source: insomnia.desktop.app:v2023.5.8
+resources:
+  - _id: req_0680858deddf449cbebdeec7e158628f
+    parentId: fld_8d11097c33ea4e3fb6ce4d571b1be49e
+    modified: 1729468088711
+    created: 1729382467713
+    url: "{{ _.baseUrl }}/auth/login"
+    name: Login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "users@teste.com.br",
+        	"password": "Asdqwe123!"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: ""
+      disabled: true
+    metaSortKey: -1729382476195
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_8d11097c33ea4e3fb6ce4d571b1be49e
+    parentId: wrk_4c52168e277d4173a5b397f21247ffba
+    modified: 1729382473252
+    created: 1729382473252
+    name: Auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1729382473252
+    _type: request_group
+  - _id: wrk_4c52168e277d4173a5b397f21247ffba
+    parentId: null
+    modified: 1729380683216
+    created: 1729380683216
+    name: Encurtador
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_5d2c8f2e23604822a2ede127e9f2b328
+    parentId: fld_045e05fff6e04a4389edbb3006e42fd3
+    modified: 1729469235955
+    created: 1729434771940
+    url: "{{ _.baseUrl }}/url-shortener"
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"url": "https://google.com.br"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1729382476195
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_045e05fff6e04a4389edbb3006e42fd3
+    parentId: wrk_4c52168e277d4173a5b397f21247ffba
+    modified: 1729434771938
+    created: 1729434771938
+    name: Url Shortener
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1729381581111
+    _type: request_group
+  - _id: req_658b5be504604488a1a88bad84795f54
+    parentId: fld_045e05fff6e04a4389edbb3006e42fd3
+    modified: 1729441220313
+    created: 1729440607355
+    url: "{{ _.baseUrl }}/url-shortener"
+    name: Index
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"url": "https://google.com.br"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1729381583928.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_0fdccbaf8a8a4604934e7a0222dc4892
+    parentId: fld_045e05fff6e04a4389edbb3006e42fd3
+    modified: 1729469257000
+    created: 1729446111081
+    url: "{{ _.baseUrl }}/4y5Oyw"
+    name: Redirect
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"url": "https://google.com.br"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1729381360861.875
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d7bc06c34c0f43ff9195536f600478fd
+    parentId: fld_045e05fff6e04a4389edbb3006e42fd3
+    modified: 1729469262529
+    created: 1729441364340
+    url: "{{ _.baseUrl }}/url-shortener/4y5Oyw"
+    name: Delete
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1729381137795.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f5faf6c7b64b4f46885ade199e1e685e
+    parentId: fld_045e05fff6e04a4389edbb3006e42fd3
+    modified: 1729445590316
+    created: 1729445555613
+    url: "{{ _.baseUrl }}/url-shortener/VBgkTQ"
+    name: Update
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"url": "https://www.google.com.br/"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1729380914728.625
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7130ebdad7ef428b872e07c214797198
+    parentId: fld_086c50777c83464fbf3a0837574bf243
+    modified: 1729441012399
+    created: 1729380691662
+    url: "{{ _.baseUrl }}/user"
+    name: Index
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    metaSortKey: -1729380691662
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_086c50777c83464fbf3a0837574bf243
+    parentId: wrk_4c52168e277d4173a5b397f21247ffba
+    modified: 1729380688970
+    created: 1729380688970
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1729380688970
+    _type: request_group
+  - _id: req_5780f479339a46259a446adc5c03b6c3
+    parentId: fld_086c50777c83464fbf3a0837574bf243
+    modified: 1729468093664
+    created: 1729381030947
+    url: "{{ _.baseUrl }}/user"
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "users@teste.com.br",
+        	"password": "Asdqwe123!"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/2023.5.8
+    authentication: {}
+    metaSortKey: -1727945050651
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_8dc1d1b3b8d91eb744dfdf64e07443f83f3b295e
+    parentId: wrk_4c52168e277d4173a5b397f21247ffba
+    modified: 1729469215058
+    created: 1729380683217
+    name: Base Environment
+    data:
+      baseUrl: http://localhost:3333
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJzQHRlc3RlLmNvbS5iciIsInN1YiI6MywiaWF0IjoxNzI5NDY4MDk3LCJleHAiOjE3Mjk0Nzg4OTd9.Ygl4A2SjTe4D9o0FWSJaOwNEEIM0lBvLmIwjacMchn4
+    dataPropertyOrder:
+      "&":
+        - baseUrl
+        - token
+    color: null
+    isPrivate: false
+    metaSortKey: 1729380683217
+    _type: environment
+  - _id: jar_8dc1d1b3b8d91eb744dfdf64e07443f83f3b295e
+    parentId: wrk_4c52168e277d4173a5b397f21247ffba
+    modified: 1729380683218
+    created: 1729380683218
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
