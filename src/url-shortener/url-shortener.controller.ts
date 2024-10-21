@@ -15,7 +15,9 @@ import { UseGuards } from '@nestjs/common';
 import { AuthenticatedRequest } from '../auth/auth-request.interface';
 import { OptionalAuthGuard } from '../auth/optional-auth.guard';
 import { UpdateUrlShortenerDto } from './dto/update-url-shortener.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('URL Shortener')
 @UseGuards(OptionalAuthGuard)
 @Controller('url-shortener')
 export class UrlShortenerController {
