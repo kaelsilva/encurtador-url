@@ -1,73 +1,85 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# URL Shortener
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este projeto tem como objetivo encurtar URLs.  
+Foi adicionado um arquivo `.env` já preenchido para fins de praticidade de execução.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Versão do Node.js
 
-## Description
+Este projeto utiliza Node.js **20.18.0**.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Acesso remoto do projeto
+Foi realizado o deploy do projeto na nuvem.  
+- URL base do projeto: <a href="http://191.252.220.249:3333" target="_blank">http://191.252.220.249:3333</a>  
+- Link da documentação: <a href="http://191.252.220.249:3333/api" target="_blank">http://191.252.220.249:3333/api</a>  
 
-## Installation
+É possível também acessar o banco de dados e verificar os usuários e URLs cadastradas.  
+Seguem as credenciais para acessar o PostgreSQL:  
+- **Host**: 191.252.220.249
+- **Porta**: 5432
+- **Usuário**: encurtador-user
+- **Senha**: U2FsdGVkX18OBAYSIGZ6XCuTeogsHjfGfJsflkpyE  
 
-```bash
-$ npm install
-```
+**Obs.:** a máquina que hospeda o projeto é bem simples, com apenar 1 vCPU e 512MB de RAM. Por este motivo pode haver timeout nas requisições e tentativas de conexão com o banco. Caso ocorra, basta tentar novamente.
 
-## Running the app
+## Executando com Docker Compose
 
-```bash
-# development
-$ npm run start
+Para executar o projeto com Docker Compose, certifique-se de que as portas **3333** e **5432** da máquina estão livres.
 
-# watch mode
-$ npm run start:dev
+Execute o seguinte comando na pasta raiz do projeto (mesma pasta que contém o arquivo _docker-compose.yml_):  
+`docker compose up -d`  
+Este comando irá subir os containers do PostgreSQL e da API.
 
-# production mode
-$ npm run start:prod
-```
+- A API e seus endpoints podem ser acessados através de <a href="http://localhost:3333" target="_blank">http://localhost:3333</a>.
+- A documentação da API pode ser acessada em <a href="http://localhost:3333/api" target="_blank">http://localhost:3333/api</a>.
 
-## Test
+**Obs.:** verificar se a máquina possui o comando `docker compose` ou o obsoleto `docker-compose` com hífen.
 
-```bash
-# unit tests
-$ npm run test
+## Executando localmente
 
-# e2e tests
-$ npm run test:e2e
+Como o `.env` é utilizado pelo Docker Compose, torna-se necessário primeiro ajustar as variáveis de ambiente e subir o banco de dados localmente:
 
-# test coverage
-$ npm run test:cov
-```
+- Abra o arquivo `.env` e substitua `NODE_ENV=production` por `NODE_ENV=development`.
 
-## Support
+A partir daqui, as variáveis do banco de dados poderiam também ser alteradas para um possível banco de dados já existente.  
+No entanto, vamos assumir que vamos subir o mesmo banco que está no `docker-compose.yml`. Neste caso, não é necessário alterar as variáveis de ambiente do banco de dados. Execute o comando:  
+`docker compose up database-encurtador -d`
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Isso fará com que o container do banco de dados execute.
 
-## Stay in touch
+Para executar a API, basta executar os comandos:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- `npm ci`
+- `npm run start:dev`
 
-## License
+**Obs.:** certifique-se de que as portas **5432** e **3333** estão livres.
 
-Nest is [MIT licensed](LICENSE).
+## Executando testes
+
+Para executar testes, primeiramente instale as dependências do projeto:  
+`npm ci`
+
+Em seguida, execute os testes:  
+`npm test`
+
+**Obs.:** os testes e build estão incluídos e são executados automaticamente no pipeline CI do GitHub Actions, além da execução dos testes no pre-commit.
+
+## Fazendo requisições para os endpoints
+
+A documentação está na URL base, no endpoint `/api` (exemplo: <a href="http://localhost:3333" target="_blank">http://localhost:3333</a>).  
+
+Você pode importar o arquivo `Insomnia_2024-10-20-encurtador-url.yaml` no Insomnia e realizar as requisições.
+
+A variável `baseUrl` está com o valor `http://localhost:3333`.  
+Lembre-se de atualizá-la, caso necessário.
+
+
+## Descrição das variáveis de ambiente
+- **DB_HOST**: host do PostgreSQL  
+- **DB_PORT**: porta do PostgreSQL  
+- **DB_USER**: usuário do PostgreSQL  
+- **DB_PASSWORD**: senha do PostgreSQL  
+- **DB_DATABASE**: nome do banco de dados do PostgreSQL  
+- **API_PORT**: porta que a aplicação do NestJS irá utilizar para executar  
+- **NODE_ENV**: ambiente Node (`development` ou `production`)  
+- **JWT_SECRET**: chave JWT  
+- **BASE_URL**: URL base do NestJS que é usada para criar a URL encurtada  
